@@ -53,6 +53,12 @@
             <!--只参与编译测试，不进行发布-->
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
+        </dependency>
     </dependencies>
 
     <build>

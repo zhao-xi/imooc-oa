@@ -11,7 +11,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="com.imooc.oa.datasource.DruidDataSourceFactory">
                 <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/imooc_oa?useSSL=false&amp;serverTimeZone=Asia/Shanghai&amp;useUnicode=true&amp;characterSet=UTF-8&amp;allowPublicKeyRetrieval=true"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/imooc_oa?useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterSet=UTF-8&amp;allowPublicKeyRetrieval=true"/>
                 <property name="username" value="root"/>
                 <property name="password" value="88888888"/>
                 <property name="initialSize" value="10"/>
@@ -21,5 +21,7 @@
     </environments>
     <mappers>
         <mapper resource="mappers/test.xml"/>
+        <mapper resource="mappers/user.xml"/>
+        <mapper resource="mappers/rbac.xml"/>
     </mappers>
 </configuration>

@@ -29,15 +29,37 @@
         <h1 style="text-align: center; margin-bottom: 20px;">慕课网办公OA系统</h1>
         <form class="layui-form">
             <div class="layui-form-item">
-                <input type="text" id="username" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input"/>
+                <input type="text" id="username" name="username" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input"/>
             </div>
             <div class="layui-form-item">
-                <input type="password" id="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input"/>
+                <input type="password" id="password" name="password" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input"/>
             </div>
             <div class="layui-form-item">
                 <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="login">登录</button>
             </div>
         </form>
     </div>
+
+<script src="/resources/layui/layui.all.js"></script>
+<script>
+    layui.form.on("submit(login)", function(formdata){
+        layui.$.ajax({
+            url : "/check_login",
+            data : formdata.field,
+            type : "post",
+            dataType : "json",
+            success : function(json) {
+                console.log(json);
+                if(json.code == "0") {
+                    // 跳转url
+                    window.location.href = json.redirect_url;
+                } else {
+                    layui.layer.msg(json.message);
+                }
+            }
+        });
+        return false; // ajax不能直接提交，必须返回false阻止表单提交
+    })
+</script>
 </body>
 </html>
