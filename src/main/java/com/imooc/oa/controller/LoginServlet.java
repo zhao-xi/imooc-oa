@@ -2,6 +2,7 @@ package com.imooc.oa.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.imooc.oa.entity.User;
+import com.imooc.oa.service.LeaveFormService;
 import com.imooc.oa.service.UserService;
 import com.imooc.oa.service.exception.BussinessException;
 import org.slf4j.Logger;
@@ -15,12 +16,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/check_login")
 public class LoginServlet extends HttpServlet {
     private UserService userService = new UserService();
+    private LeaveFormService leaveFormService = new LeaveFormService();
     Logger logger = LoggerFactory.getLogger(LoginServlet.class);
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");

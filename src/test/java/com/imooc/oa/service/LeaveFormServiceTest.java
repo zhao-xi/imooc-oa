@@ -62,4 +62,14 @@ public class LeaveFormServiceTest extends TestCase {
         LeaveForm savedForm = leaveFormService.createLeaveForm(form);
         System.out.println(savedForm.getFormId());
     }
+
+    public void testAudit1() {
+        leaveFormService.audit(31l, 2l, "approved", "祝早日康复");
+    }
+    public void testAudit2() {
+        leaveFormService.audit(32l, 2l, "refused", "工期紧张，请勿拖延");
+    }
+    public void testAudit3() {
+        leaveFormService.audit(33l, 1l, "approved", "同意");
+    }
 }
